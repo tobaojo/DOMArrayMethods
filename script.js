@@ -41,6 +41,14 @@ function sortByRichest(){
     updateDom();
 }
 
+
+function filterMillionaires(){
+     data =  data.filter((user)  => {
+        return user.money > 1000000;
+    })
+
+    updateDom();
+}
 //add data to function array
 function addData(obj){
     data.push(obj);
@@ -64,7 +72,7 @@ function updateDom(provData = data){
     })
 }
 
-//format numer as money 
+//format number as money 
 
 function formatMoney(number){
     return '£'+number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -75,3 +83,4 @@ function formatMoney(number){
 addUser.addEventListener('click', getRandomUser);
 doubleMoneyBtn.addEventListener('click', doubleMoney);
 sortBtn.addEventListener('click', sortByRichest)
+showMillion.addEventListener('click', filterMillionaires)
