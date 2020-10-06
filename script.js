@@ -1,3 +1,4 @@
+//get elements from HTML 
 const main = document.getElementById('main');
 const addUser = document.getElementById('add-user');
 const doubleMoneyBtn = document.getElementById('double-money');
@@ -5,9 +6,10 @@ const showMillion = document.getElementById('show-millionaires');
 const sortBtn = document.getElementById('sort');
 const calWealth = document.getElementById('calculate-wealth');
 
-
+//initialise empty array
 let data = [];
 
+//call getRandomUser method X3 times
 getRandomUser()
 getRandomUser()
 getRandomUser()
@@ -26,7 +28,7 @@ async function getRandomUser(){
     addData(newUser);
 
 }
-
+// function to double the money
 function doubleMoney(){
     data = data.map((user) => {
         return {...user, money: user.money * 2}
@@ -34,14 +36,14 @@ function doubleMoney(){
     
     updateDom();
 }
-
+// function to sort by richest
 function sortByRichest(){
     data.sort((a,b) => b.money - a.money);
 
     updateDom();
 }
 
-
+// funtion to filter millionaires
 function filterMillionaires(){
      data =  data.filter((user)  => {
         return user.money > 1000000;
@@ -49,7 +51,7 @@ function filterMillionaires(){
 
     updateDom();
 }
-
+//Function calculateTotalWealth 
 function calculateTotalWealth(){
     const wealth  = data.reduce((acc, user)  => 
         (acc += user.money), 0)
@@ -67,7 +69,6 @@ function addData(obj){
     updateDom()
 }
 
-//double eveyone money
 
 
 //update dom
