@@ -57,12 +57,31 @@ function doubleMoney(){
 }
 
 //function tosort by richest
+
+function sortByRichest(){
+    data.sort((a,b)=>{
+       return b.money - a.money ;
+    });
+
+updateDom();
+}
 //function to filter by largest
+
+function showMiilionaires(){
+    data = data.filter((mill)=>{
+      return mill.money > 1000000
+    });
+
+    updateDom();
+}
 //function to calculate total wealth
 // data from object to empty array
 
 
 //format numebrs to currency
+
 //add  event listeners
 addUserBtn.addEventListener('click', addUser)
 doubleMoneyBtn.addEventListener('click', doubleMoney)
+sortBtn.addEventListener('click', sortByRichest)
+showMillBtn.addEventListener('click',showMiilionaires)
