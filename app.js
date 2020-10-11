@@ -75,6 +75,11 @@ function showMiilionaires(){
     updateDom();
 }
 //function to calculate total wealth
+
+function calculateTotalWealth(){
+    const totalWealth =  data.reduce((acc, user) => { return acc += user.money }, 0)
+    console.log(totalWealth);
+}
 // data from object to empty array
 
 
@@ -85,3 +90,4 @@ addUserBtn.addEventListener('click', addUser)
 doubleMoneyBtn.addEventListener('click', doubleMoney)
 sortBtn.addEventListener('click', sortByRichest)
 showMillBtn.addEventListener('click',showMiilionaires)
+calWealth.addEventListener('click',  calculateTotalWealth)
